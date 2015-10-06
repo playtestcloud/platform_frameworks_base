@@ -260,6 +260,7 @@ bool parseCommaSeparatedList(const String8& str, std::set<ConfigDescription>* ou
 }
 
 void applyVersionForCompatibility(ConfigDescription* config) {
+    return;
     if (config == NULL) {
         return;
     }
@@ -538,13 +539,11 @@ bool parseUiModeType(const char* name, ResTable_config* out) {
               (out->uiMode&~ResTable_config::MASK_UI_MODE_TYPE)
               | ResTable_config::UI_MODE_TYPE_WATCH;
         return true;
-<<<<<<< HEAD
     } else if (strcmp(name, "vrheadset") == 0) {
       if (out) out->uiMode =
               (out->uiMode&~ResTable_config::MASK_UI_MODE_TYPE)
               | ResTable_config::UI_MODE_TYPE_VR_HEADSET;
         return true;
-=======
     } else if (strcmp(name, "smallui") == 0) {
       if (out) out->uiMode =
               (out->uiMode&~ResTable_config::MASK_UI_MODE_TYPE)
@@ -566,7 +565,6 @@ bool parseUiModeType(const char* name, ResTable_config* out) {
     } else if (strcmp(name, "godzillaui") == 0) {
       if (out) out->uiMode = 0xb;
       return true;
->>>>>>> 1967634... add miui rules (including godzillaui)
     }
 
     return false;
