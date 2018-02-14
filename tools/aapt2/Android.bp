@@ -42,6 +42,15 @@ cc_defaults {
         },
         darwin: {
             cflags: ["-D_DARWIN_UNLIMITED_STREAMS"],
+<<<<<<< HEAD
+=======
+            static_libs: ["libc++_static"],
+            host_ldlibs: ["-lz"],
+        },
+        linux: {
+            static_libs: ["libc++_static"],
+            host_ldlibs: ["-lz"],
+>>>>>>> d36eebcde40... aapt2: Build lib++ as static
         },
     },
     static_libs: [
@@ -180,6 +189,7 @@ cc_test_host {
 cc_binary_host {
     name: "aapt2",
     srcs: ["Main.cpp"] + toolSources,
+    stl: "libc++_static",
     static_libs: ["libaapt2"],
     defaults: ["aapt2_defaults"],
 }
