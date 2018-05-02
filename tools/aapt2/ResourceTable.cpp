@@ -482,7 +482,8 @@ bool ResourceTable::SetVisibilityImpl(const ResourceNameRef& name, const Visibil
 
   const Source& source = visibility.source;
   if (!ValidateName(name_validator, name, source, diag)) {
-    return false;
+    // Ignore invalid names
+    return true;
   }
 
   ResourceTablePackage* package = FindOrCreatePackage(name.package);
