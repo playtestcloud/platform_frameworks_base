@@ -462,8 +462,7 @@ bool ResourceTable::SetSymbolStateImpl(const ResourceNameRef& name, const Resour
   if (!bad_char.empty()) {
     diag->Error(DiagMessage(symbol.source) << "resource '" << name << "' has invalid entry name '"
                                            << name.entry << "'. Invalid character '" << bad_char
-                                           << "'");
-    return false;
+                                           << "'. Ignoring...");
   }
 
   ResourceTablePackage* package = FindOrCreatePackage(name.package);
