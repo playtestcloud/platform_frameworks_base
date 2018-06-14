@@ -107,9 +107,9 @@ bool IsValidResourceEntryName(const StringPiece& str) {
     return false;
   }
 
-  // Resources are allowed to start with '_'
+  // Resources are allowed to start with '_' or '$'
   const char32_t first_codepoint = iter.Next();
-  if (!IsXidStart(first_codepoint) && first_codepoint != U'_') {
+  if (!IsXidStart(first_codepoint) && first_codepoint != U'_' && first_codepoint != U'$') {
     return false;
   }
 
